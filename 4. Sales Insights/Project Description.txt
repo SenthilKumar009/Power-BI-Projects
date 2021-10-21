@@ -1,0 +1,2 @@
+This Project is made for understanding the sales analysis of the electrical stores. 
+Based on the Tutorial - Sales Insights Data Analysis Project In Power BI - CodeBasics.

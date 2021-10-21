@@ -1,0 +1,2 @@
+This Project created for anlysing my personal income and expense stats to improve my savings better.
+Based on the Tutorial - Personal Finance Analysis Project In Power BI - CodeBasics.

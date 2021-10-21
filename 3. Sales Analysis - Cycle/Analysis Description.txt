@@ -1,0 +1,41 @@
+Title : Adventure Cycles Sales Analysis
+
+Data Source: SQL Server
+
+Description: 
+* This Dashboard explains the Sales Analysis of Adventure Cycles for the year 2013. 
+* This explains the different analysis like Age, Category, Region, Marital Status, Dates, Product and Category.
+* Main features for this dashboard is time series analysis.
+
+DAX Formulas:
+
+1. Get the difference between the current and last month -
+		% Diff Month = DIVIDE((SUM(FactInternetSales[SalesAmount]) - [Sales Prev Month]), [SalesAmount], 0) - 
+2. Get the cummulative sales details N month before.
+		N Months Cumm Total = CALCULATE([SalesAmount], DATESINPERIOD(DimDate[Date].[Date], LASTDATE(DimDate[Date].[Date]), -3, MONTH))
+3. Get the sales details N days before. 
+		Sales N Days Ago = CALCULATE(SUM(FactInternetSales[SalesAmount]), DATEADD(DimDate[Date].[Date], -14, DAY))
+4. Get the sales details N month before. 
+		Sales N Months Ago = CALCULATE(SUM(FactInternetSales[SalesAmount]), DATEADD(DimDate[Date].[Date], -6, MONTH))
+5. Get the sales details N Year after. 
+		Sales N Year After = CALCULATE(SUM(FactInternetSales[SalesAmount]), DATEADD(DimDate[Date].[Date], 2, YEAR))
+6. Get the last year sales period details.
+		Sales Period Last Year = CALCULATE(SUM(FactInternetSales[SalesAmount]), SAMEPERIODLASTYEAR(DimDate[Date].[Date]))
+7. Get the previous month sales details.
+		Sales Prev Month = CALCULATE(SUM(FactInternetSales[SalesAmount]), PREVIOUSMONTH(DimDate[Date].[Date]))
+8. Get the previous Quarter sales details.
+		Sales Prev Qtr = CALCULATE(SUM(FactInternetSales[SalesAmount]), PREVIOUSQUARTER(DimDate[Date].[Date]))
+9. Get the previous year sales details
+		Sales Prev Year = CALCULATE(SUM(FactInternetSales[SalesAmount]), PREVIOUSYEAR(DimDate[Date].[Date]))
+10. Get the Sales details of Financial Year
+		Sales Qty YTD FY = TOTALYTD(SUM(FactInternetSales[OrderQuantity]), DimDate[Date].[Date], "3/31")
+11. Get the sales quantity of Month To Date
+		Sales Quantity MTD = TOTALMTD(SUM(FactInternetSales[OrderQuantity]), DimDate[Date].[Date])
+12. Get the sales quantity of Quarter To Date
+		Sales Quantity QTD = TOTALQTD(SUM(FactInternetSales[OrderQuantity]), DimDate[Date].[Date])
+13. Get the sales quantity of Year To Date
+		Sales Quantity QTD = TOTALQTD(SUM(FactInternetSales[OrderQuantity]), DimDate[Date].[Date])
+14. View two different 	behaviour in single graph based on the selction
+		CostPrice = SUM(DimProduct[Price])
+		New Sales Cost Amount = IF(HASONEVALUE(DimProduct[EnglishProductName]), [CostPrice], [TotalSales])
+15. 
