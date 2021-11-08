@@ -1,0 +1,29 @@
+Tasks
+
+Load both csv to power query, transform it and load to power BI, then follow the video instruction step by step.
+Keep creating and stay connect to Data with Decision.
+--------------------------------------------------
+1) Show gender by value and % percentages
+Create performance culumn: 3= High ratings above is Low ratings
+
+2) Create job satisfaction column:
+High
+medium
+low
+
+3) Create promotion column using years since last promoted:
+Above 10 years should be due for promotion
+the rest year will not be due
+
+4) Creat column for retirement and show this following:
+Due for retirment
+On service
+
+
+5) Create distance from home 🏡 column with the following:
+Very far
+Closs
+Very closs
+
+6) Show the employees that need promotions
+   Show the employees that need retirment 
