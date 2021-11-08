@@ -1,0 +1,8 @@
+1. SUM() - To sum up the entire column values.
+Ex - Calculate the total sales value.
+Total Sales = sum(sales[sales amount])
+
+2. PrevYearSales = CALCULATE(SUM(Sales[Sales Amount]), SAMEPERIODLASTYEAR(Sales[Sale date].[Date]))
+To calculate the previous year sales, we should use SAMEPERIODLASTYEAR() function
+
+3. 
