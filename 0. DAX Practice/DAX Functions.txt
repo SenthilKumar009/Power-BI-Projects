@@ -5,4 +5,23 @@ Total Sales = sum(sales[sales amount])
 2. PrevYearSales = CALCULATE(SUM(Sales[Sales Amount]), SAMEPERIODLASTYEAR(Sales[Sale date].[Date]))
 To calculate the previous year sales, we should use SAMEPERIODLASTYEAR() function
 
-3. 
+3. SUMX() - When summing up based on some calculation we have to use SUMX() function.
+
+4. MTD() - To calculate month to date calculate respective to the sales/ quantity or one particular data we should use MTD() function.
+Ex: To calcualate the monthly quantity of the sales we should use as below.
+Sales Quantity MTD = TOTALMTD(SUM(Sales[Quantity]), DimDate[Date].[Date])
+
+5. QTD() - To calculate quarter vise calculation of the sales/ quantity or one particular data we should use QTD() function.
+Ex: To calcualate the monthly quantity of the sales we should use as below.
+Sales Quantity QTD = TOTALQTD(SUM(Sales[Quantity]), DimDate[Date].[Date])
+
+6. YTD() - To calculate year vise calculation of the sales/ quantity or one particular data we should use YTD() function.
+Ex: To calcualate the monthly quantity of the sales we should use as below.
+Sales Quantity YTD = TOTALYTD(SUM(Sales[Quantity]), DimDate[Date].[Date])
+
+7. SAMEPERIODLASTYEAR() - To calcualate year on year comparison in DAX
+CALCULATE(SUM(Sales[Sales Amount]), SAMEPERIODLASTYEAR(Sales[Sale date].[Date]))
+
+8. PREVIOUSMONTH() - To extract the Previous Month Data we can use PREVIOUSMONTH() function. It will help to compare the current month process against the previous month.
+Ex: To compare the current month sales against previous month we can use the below formula.
+Previous Month Sales = CALCULATE(SUM(Sales[Sales Amount]), PREVIOUSMONTH(DimDate[Date].[Date]))
