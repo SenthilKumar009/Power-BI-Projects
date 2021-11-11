@@ -25,3 +25,24 @@ CALCULATE(SUM(Sales[Sales Amount]), SAMEPERIODLASTYEAR(Sales[Sale date].[Date]))
 8. PREVIOUSMONTH() - To extract the Previous Month Data we can use PREVIOUSMONTH() function. It will help to compare the current month process against the previous month.
 Ex: To compare the current month sales against previous month we can use the below formula.
 Previous Month Sales = CALCULATE(SUM(Sales[Sales Amount]), PREVIOUSMONTH(DimDate[Date].[Date]))
+
+9. Date Functions:
+
+Get the data of sales some n days agao, or from the days actual sales started? - we can use the date functions to extract the details
+
+Sales 14 days Ago = CALCULATE(SUM(Sales[Sales Amount]), DATEADD(DimDate[Date].[Date], -14, DAY))
+
+-14 to calcualate the sales 14 days ago
+
+Sales 2 Years Ago = CALCULATE(SUM(Sales[Sales Amount]), DATEADD(DimDate[Date].[Date], 2, YEAR))
+
+-2 to calcualate the sales 2 years ago
+
+10. Calculate Moving averages:
+
+To calculate the sales total, average in particular periods continiously we can use DATESINPERIOD() function
+
+3 Months Cum Average = 
+var sumOfTotal = CALCULATE(SUM(Sales[Sales Amount]), DATESINPERIOD(DimDate[Date].[Date], LASTDATE(DimDate[Date].[Date]), -3, MONTH))
+var countOfMonth = CALCULATE(DISTINCTCOUNT(DimDate[Date].[MonthNo]), DATESINPERIOD(DimDate[Date].[Date], LASTDATE(DimDate[Date].[Date]), -3, MONTH))
+return DIVIDE(sumOfTotal, countOfMonth, 0)
